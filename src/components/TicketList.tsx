@@ -1,6 +1,5 @@
 import { PropsTicketList } from "../types/TicketList";
 
-import { v4 as uuidv4 } from "uuid";
 import TicketItem from "./TicketItem";
 
 export default function TicketList({
@@ -22,7 +21,7 @@ export default function TicketList({
     <ul className="flex flex-col gap-6">
       {filteredTickets.map((ticket) => (
         <TicketItem
-          key={uuidv4()}
+          key={ticket.arrival_time + ticket.departure_time + ticket.price}
           ticket={ticket}
           currency={currency}
           priceCoefficient={priceCoefficient}
